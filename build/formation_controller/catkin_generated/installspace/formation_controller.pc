@@ -1,0 +1,8 @@
+prefix=/home/wheeltec/demo03_ws/install
+
+Name: formation_controller
+Description: Description of formation_controller
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

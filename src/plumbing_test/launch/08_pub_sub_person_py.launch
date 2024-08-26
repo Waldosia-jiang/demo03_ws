@@ -1,0 +1,12 @@
+<!--launch编写发布订阅节点启动-->
+<launch>
+<!--启动发布方节点-->
+<node pkg= "plumbing_pub_sub" type= "demo03_pub_person.py" name= "talker" output="screen" />
+
+<!--启动订阅方节点-->
+<node pkg= "plumbing_pub_sub" type= "demo04_sub_person.py" name= "listen" output="screen" />
+
+<!--显示rqt_graph-->
+<node pkg= "rqt_graph" type= "rqt_graph" name= "graph" output="screen" />
+
+</launch>

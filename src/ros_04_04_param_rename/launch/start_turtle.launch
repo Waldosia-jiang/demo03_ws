@@ -1,0 +1,15 @@
+<launch>
+<!-- 设置参数 -->
+<!-- 
+可以在 node 标签外，或 node 标签中通过 param 或 rosparam 来设置参数。
+在 node 标签外设置的参数是全局性质的，参考的是 / ，在 node 标签中设置的参数是私有性质的，
+参考的是 /命名空间/节点名称。 
+-->
+     <!-- 格式一：全局 -->
+    <param name="radius" value="100" />
+    <node pkg="turtlesim" type="turtlesim_node" name="t1">
+        <!-- 格式二：私有 -->
+        <param name="radius" value="50" />
+    </node>
+
+</launch>

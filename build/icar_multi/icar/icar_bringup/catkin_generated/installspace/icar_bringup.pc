@@ -1,0 +1,8 @@
+prefix=/home/wheeltec/demo03_ws/install
+
+Name: icar_bringup
+Description: Description of icar_bringup
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

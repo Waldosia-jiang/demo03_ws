@@ -1,0 +1,8 @@
+prefix=/home/wheeltec/demo03_ws/install
+
+Name: demo01_ws
+Description: Description of demo01_ws
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

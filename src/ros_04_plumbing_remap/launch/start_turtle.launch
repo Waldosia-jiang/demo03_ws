@@ -1,0 +1,22 @@
+<launch>
+<!--respawn = "true | false" (可选) 如果节点退出，是否自动重启-->
+<!--required="true | false" (可选)  该节点是否必须，如果为 true,那么如果该节点退出，将杀死整个 roslaunch-->
+<!--ns="xxx" (可选) 在指定命名空间 xxx 中启动节点,可以用来解决重名问题-->
+
+<!-- 
+    1.属性
+    from="xxx" 原始话题名称 to="yyy" 目标名称
+-->
+
+<!-- <node pkg= "turtlesim" type= "turtlesim_node" name= "turtle1" output="screen" respawn="true" /> -->
+
+<!--键盘控制1-->
+<!-- <node pkg= "turtlesim" type= "turtle_teleop_key" name= "key1"  /> -->
+
+<!--程序控制-->
+<node pkg= "turtlesim_control" type= "demo01_turtlesim_control" name= "control" />
+
+<!--显示rqt_graph-->
+<node pkg= "rqt_graph" type= "rqt_graph" name= "graph" />
+
+</launch>

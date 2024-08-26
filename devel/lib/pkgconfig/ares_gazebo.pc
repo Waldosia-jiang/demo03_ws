@@ -1,0 +1,8 @@
+prefix=/home/wheeltec/demo03_ws/devel
+
+Name: ares_gazebo
+Description: Description of ares_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

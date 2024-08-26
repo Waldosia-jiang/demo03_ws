@@ -1,0 +1,303 @@
+<!--需求：设置机器人底盘，并添加摄像头-->
+<robot name="mycar">
+
+<!--添加一个尺寸极小的link，再去关联初始link和base_link，关节的高度刚好和bese_link下沉的高度一致（半个底盘高度）-->
+<link name="base_footprint">
+    <visual>
+       <geometry>
+          <box size="0.001 0.001 0.001"/>
+       </geometry>
+    </visual>
+</link>
+
+<!--添加底盘-->
+<!--
+    形状：圆柱
+    半径:10cm
+    高度：8cm
+    离地间距：1.5cm
+-->
+<link name="base_link">
+    <visual>
+       <geometry>
+          <cylinder radius="0.1" length="0.08"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+       <material name="baselink_color">
+           <color rgba="0.7 0.8 0 0.5"/>
+       </material>
+    </visual>
+    <!--设置碰撞矩阵-->
+    <collision>
+    <geometry>
+          <cylinder radius="0.1" length="0.08"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+    <!--设置惯性矩阵-->
+    <inertial>
+            <mass value="2" />
+            <inertia ixx="1" ixy = "0" ixz = "0"
+                iyy="1" iyz = "0"
+                izz="0.01" /> 
+    </inertial>
+
+</link>
+<gazebo reference="base_link">
+    <!--颜色参数区分大小写-->
+    <material>Gazebo/Yellow</material>
+</gazebo>
+
+<!--添加一个关节关联 base_link 和 base_footprint -->
+<joint name="base_link2base_footprint" type="fixed">
+     <!--父级link-->
+     <parent link="base_footprint"/>
+     <!--子级link-->
+     <child link="base_link"/>
+     <!--设置偏移量:车体高度/2 + 离地间距-->
+     <origin xyz="0 0 0.055" rpy="0 0 0"/>
+</joint>
+
+<!--添加左驱动轮-->
+<!--
+    形状：圆柱
+    半径:3.5cm
+    宽度：1.5cm
+-->
+<link name="left_wheel">
+    <visual>
+       <geometry>
+          <cylinder radius="0.035" length="0.015"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+       <material name="wheel_color">
+           <color rgba="0 0 0 0.5"/>
+       </material>
+    </visual>
+</link>
+
+<!--添加一个关节关联 base_link 和 left_wheel -->
+<joint name="base_l_wheel_joint" type="continuous">
+<!--<joint name="left_wheel2base_link" type="continuous">-->
+     <!--父级link-->
+     <parent link="base_link"/>
+     <!--子级link-->
+     <child link="left_wheel"/>
+     <!--设置偏移量-->
+     <!--
+    x：无偏移
+    y:半径0.1m
+    z：1.5cm
+    -->
+     <origin xyz="0 0.1 -0.02" rpy="0 0 0"/>
+     <axis xyz="0 1 0"/>
+</joint>
+
+<!--添加右驱动轮-->
+<!--
+    形状：圆柱
+    半径:3.5cm
+    宽度：1.5cm
+-->
+<link name="right_wheel">
+    <visual>
+       <geometry>
+          <cylinder radius="0.035" length="0.015"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+       <material name="wheel_color">
+           <color rgba="0 0 0 0.5"/>
+       </material>
+    </visual>
+</link>
+
+<!--添加一个关节关联 base_link 和 right_wheel -->
+<joint name="base_r_wheel_joint" type="continuous">
+<!--<joint name="right_wheel2base_link" type="continuous">-->
+     <!--父级link-->
+     <parent link="base_link"/>
+     <!--子级link-->
+     <child link="right_wheel"/>
+     <!--设置偏移量-->
+     <!--
+    x：无偏移
+    y:半径0.1m
+    z：1.5cm
+    -->
+     <origin xyz="0 -0.1 -0.02" rpy="0 0 0"/>
+     <axis xyz="0 1 0"/>
+</joint>
+
+<!--添加前面万向轮-->
+<!--
+    形状：球体
+    半径:0.0075m
+-->
+<link name="front_wheel">
+    <visual>
+       <geometry>
+          <sphere radius="0.0075"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+       <material name="wheel_color">
+           <color rgba="0 0 0 0.5"/>
+       </material>
+    </visual>
+</link>
+
+<!--添加一个关节关联 base_link 和 front_wheel -->
+<joint name="front_wheel2base_link" type="continuous">
+     <!--父级link-->
+     <parent link="base_link"/>
+     <!--子级link-->
+     <child link="front_wheel"/>
+     <!--设置偏移量-->
+     <!--
+    x：无偏移
+    y:半径0.1m
+    z：1.5cm
+    -->
+     <origin xyz="0.08 0 -0.0475" rpy="0 0 0"/>
+     <axis xyz="1 1 1"/>
+</joint>
+
+<!--添加后面万向轮-->
+<!--
+    形状：球体
+    半径:0.0075m
+-->
+<link name="back_wheel">
+    <visual>
+       <geometry>
+          <sphere radius="0.0075"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+       <material name="wheel_color">
+           <color rgba="0 0 0 0.5"/>
+       </material>
+    </visual>
+</link>
+
+<!--添加一个关节关联 base_link 和 back_wheel -->
+<joint name="back_wheel2base_link" type="continuous">
+     <!--父级link-->
+     <parent link="base_link"/>
+     <!--子级link-->
+     <child link="back_wheel"/>
+     <!--设置偏移量-->
+     <!--
+    x：无偏移
+    y:半径0.1m
+    z：1.5cm
+    -->
+     <origin xyz="-0.08 0 -0.0475" rpy="0 0 0"/>
+     <axis xyz="1 1 1"/>
+</joint>
+
+<!--添加摄像头部件-->
+<!--
+    摄像头属性：
+    厚度:0.02
+    高度:0.04
+    宽度:0.05
+    关节属性：x y z 偏移量(0.08 0 0.06)
+-->
+<link name="car_camera">
+    <visual>
+       <geometry>
+          <box size="0.02 0.04 0.05"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+       <material name="wheel_color">
+           <color rgba="1 1 0 0.5"/>
+       </material>
+    </visual>
+</link>
+
+<!--添加一个关节关联 base_link 和 car_camera -->
+<joint name="car_camera2base_link" type="continuous">
+     <!--父级link-->
+     <parent link="base_link"/>
+     <!--子级link-->
+     <child link="car_camera"/>
+     <!--设置偏移量-->
+     <!--
+    x：0.08
+    y: 0m
+    z：0.06m
+    -->
+     <origin xyz="0.08 0 0.06" rpy="0 0 0"/>
+     <axis xyz="0 0 1"/>
+</joint>
+
+<!--添加雷达部件-->
+<!--
+    雷达参数（圆柱）：
+    高度:0.03
+    半径:0.04
+    关节属性：x y z 偏移量(0 0 0)
+-->
+<link name="car_laser">
+    <visual>
+       <geometry>
+          <cylinder radius="0.04" length="0.03"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+       <material name="wheel_color">
+           <color rgba="1 1 0 0.5"/>
+       </material>
+    </visual>
+</link>
+
+<!--添加雷达支架部件-->
+<!--
+    雷达支架参数（圆柱）：
+    高度:0.2
+    半径:0.01
+    关节属性：x y z 偏移量(0 0 0.14)
+-->
+<link name="laser_support">
+    <visual>
+       <geometry>
+          <cylinder radius="0.01" length="0.2"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+       <material name="wheel_color">
+           <color rgba="1 1 0 0.5"/>
+       </material>
+    </visual>
+</link>
+
+<!--添加一个关节关联 base_link 和 laser_support -->
+<joint name="car_laser2base_link" type="fixed">
+     <!--父级link-->
+     <parent link="base_link"/>
+     <!--子级link-->
+     <child link="laser_support"/>
+     <!--设置偏移量-->
+     <!--
+    x:0
+    y:0
+    z:0.10m
+    -->
+     <origin xyz="0 0 0.10" rpy="0 0 0"/>
+     <axis xyz="0 0 0"/>
+</joint>
+
+<!--添加一个关节关联 car_laser 和 laser_support-->
+<joint name="car_laser2laser_support" type="continuous">
+     <!--父级link-->
+     <parent link="laser_support"/>
+     <!--子级link-->
+     <child link="car_laser"/>
+     <!--设置偏移量-->
+     <!--
+    x:0
+    y:0
+    z:0.11
+    -->
+     <origin xyz="0 0 0.11" rpy="0 0 0"/>
+     <axis xyz="0 0 1"/>
+</joint>
+
+</robot>

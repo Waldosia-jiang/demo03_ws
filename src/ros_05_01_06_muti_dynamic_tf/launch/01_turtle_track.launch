@@ -1,0 +1,33 @@
+<!--
+    tf2 实现小乌龟跟随案例
+-->
+<launch>
+        <!-- 启动乌龟节点与控制节点 -->
+        <node pkg="turtlesim" type="turtlesim_node" name="turtle1" output="screen" />
+        <!-- <node pkg="turtlesim" type="turtle_teleop_key" name="key_control" output="screen"/> -->
+        <node pkg= "turtlesim_control" type= "demo01_turtlesim_control" name= "control" />
+
+        <!-- 启动创建第二只乌龟的节点 -->
+        <node pkg="ros_05_01_06_muti_dynamic_tf" type="01_new_turtle_node" name="turtle2" output="screen" />
+
+        <!-- 
+             启动两个坐标发布节点
+             1.节点只编写一个
+             2.这个节点需要启动两次、
+             3.节点启动动态传入参数，第一次是 turtle1 第二次是 turtle2
+        -->
+        <node pkg="ros_05_01_06_muti_dynamic_tf" type="02_pose_pub_node" name="caster1" output="screen" args="turtle1" />
+        <node pkg="ros_05_01_06_muti_dynamic_tf" type="02_pose_pub_node" name="caster2" output="screen" args="turtle2" />
+
+        <!-- 启动坐标转换节点 -->
+        <node pkg="ros_05_01_06_muti_dynamic_tf" type="03_pose_sub_node" name="listener" output="screen" />
+
+        <!--启动rqt-->
+        <node pkg= "rqt_gui" type= "rqt_gui" name= "gui"  />
+
+        <!--显示rqt_graph-->
+        <!-- <node pkg= "rqt_graph" type= "rqt_graph" name= "graph"  /> -->
+
+        <!--启动rviz-->
+        <!-- <node pkg= "rviz" type= "rviz" name= "rviz_graph" /> -->
+</launch>

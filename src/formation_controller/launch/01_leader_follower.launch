@@ -1,0 +1,104 @@
+<!--集成导航相关的launch文件-->
+<launch>
+
+     <arg name="robot_name_1" default="robot1" />
+     <arg name="robot_name_2" default="robot2" /> 
+     <arg name="robot_name_3" default="robot3" /> 
+
+     <param name="robot_name_1" type="string" value="robot1" />
+     <param name="robot_name_2" type="string" value="robot2" /> 
+     <param name="robot_name_3" type="string" value="robot3" /> 
+
+      <!-- 控制两边跟随者的距离 -->
+     <param name="L0" type="double" value = "1.1" />
+
+     <param name="theta0" type="double" value = "6.28318530" />
+
+      <!-- 控制两边跟随者的角度 -->
+     <param name="angle_p" type="double" value = "$(eval 5/12)" />
+
+     <!-- 单独控制两边跟随者的角度 -->
+     <param name="angle_L" type="double" value = "$(eval 1)" /> 
+     <param name="angle_R" type="double" value = "$(eval 1)" />
+
+     <!-- 单独控制两边跟随者的距离 -->
+     <param name="liner_L" type="double" value = "1" />
+     <param name="liner_R" type="double" value = "1" />
+     
+     <!-- 膨胀半径，用于设置安全距离 -->
+     <param name="inflation_radius" type="double" value = "0.2" />
+
+     <param name="frame_id" type="string" value = "map" />
+
+     <!-- 控制器转换 -->
+     <param name="flag_controller" type="bool" value = "false" />
+
+    <!-- 加载机器人参数并启动gazebo环境 -->
+    <include file= "$(find icarmulti_gazebo)/launch/3robot.launch" /> 
+
+    <!-- map file -->
+    <arg name="map" default="cloister_gmapping.yaml" />
+
+    <!-- Map服务器，加载*.yaml地图 -->
+     <node name="map_server" pkg="map_server" type="map_server" args="$(find icarmulti_navigation)/maps/$(arg map)">
+           <param name="frame_id" value="map" />
+     </node>
+
+    <!-- <param name="use_sim_time" value="true" /> -->
+
+	<remap from="/cmd_vel" to="robot1/cmd_vel"/>
+	<!-- <remap from="/scan" to="robot1/scan"/> -->
+
+    <node pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster_1" args="0 0 0 0 0 0 map robot1/odom 20" />
+    <node pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster_2" args="0 0 0 0 0 0 map robot2/odom 20" />
+    <node pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster_3" args="0 0 0 0 0 0 map robot3/odom 20" />
+
+    <!-- 启动AMCL节点 -->
+    <!-- <include file="$(find icarmulti_navigation)/launch/amcl.launch" >
+          <arg name="robot_name" value="$(arg robot_name_1)" />
+          <arg name="initial_pose_x"  default="0.0"/>
+	     <arg name="initial_pose_y"  default="0.0"/>
+	     <arg name="initial_pose_a"  default="0.0"/>
+    </include> -->
+
+    <!-- 启动AMCL节点 -->
+    <!-- <include file="$(find icarmulti_navigation)/launch/amcl.launch" >
+         <arg name="robot_name" value="$(arg robot_name_2)" />
+         <arg name="initial_pose_x"  default="0.0"/>
+	     <arg name="initial_pose_y"  default="0.6"/>
+	     <arg name="initial_pose_a"  default="0.0"/>
+    </include> -->
+
+    <!-- 启动AMCL节点 -->
+    <!-- <include file="$(find icarmulti_navigation)/launch/amcl.launch" >
+         <arg name="robot_name" value="$(arg robot_name_3)" />
+         <arg name="initial_pose_x"  default="0.0"/>
+	     <arg name="initial_pose_y"  default="-0.6"/>
+	     <arg name="initial_pose_a"  default="0.0"/>
+    </include> -->
+
+    <!-- 运行move_base节点 -->
+    <include file="$(find icarmulti_navigation)/launch/move_base.launch">
+         <arg name="robot_name" value="$(arg robot_name_1)" />
+    </include>
+
+    <!-- 运行move_base节点 -->
+    <include file="$(find icarmulti_navigation)/launch/move_base.launch">
+         <arg name="robot_name" value="$(arg robot_name_2)" />
+    </include>
+
+    <!-- 运行move_base节点 -->
+    <include file="$(find icarmulti_navigation)/launch/move_base.launch">
+         <arg name="robot_name" value="$(arg robot_name_3)" />
+    </include>
+
+     <!-- 发布虚拟跟随节点坐标 -->
+    <node pkg="formation_controller" type="04_pose_virture_node" name="virture_L" output="screen" args="robot2" />
+    <node pkg="formation_controller" type="04_pose_virture_node" name="virture_R" output="screen" args="robot3" />
+
+
+    <!-- 运行rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find icarmulti_navigation)/rviz/navigation.rviz"/>
+
+</launch>
+

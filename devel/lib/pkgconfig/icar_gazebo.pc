@@ -1,0 +1,8 @@
+prefix=/home/wheeltec/demo03_ws/devel
+
+Name: icar_gazebo
+Description: Description of icar_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/wheeltec/demo03_ws/devel
+
+Name: ros_05_02_rosbag
+Description: Description of ros_05_02_rosbag
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

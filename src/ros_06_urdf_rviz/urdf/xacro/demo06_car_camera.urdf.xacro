@@ -1,0 +1,48 @@
+<robot name="mycar" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!--添加摄像头部件-->
+<!--
+    摄像头属性：
+    厚度:0.02
+    高度:0.04
+    宽度:0.05
+    关节属性：x y z 偏移量(0.08 0 0.06)
+-->
+
+<!--摄像头参数-->
+ <xacro:property name="camera_x" value="0.02"/> <!--厚度-->
+ <xacro:property name="camera_y" value="0.04"/> <!--宽度-->
+ <xacro:property name="camera_z" value="0.04"/> <!--高度-->
+ <!--关节属性偏移量-->
+ <xacro:property name="camera_link_x" value="0.08"/>
+ <xacro:property name="camera_link_y" value="0"/>
+ <xacro:property name="camera_link_z" value="${base_link_length/2+camera_z/2}"/>
+
+<link name="car_camera">
+    <visual>
+       <geometry>
+          <box size="${camera_x} ${camera_y} ${camera_z}"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+       <material name="wheel_color">
+           <color rgba="1 1 0 0.5"/>
+       </material>
+    </visual>
+</link>
+
+<!--添加一个关节关联 base_link 和 car_camera -->
+<joint name="car_camera2base_link" type="continuous">
+     <!--父级link-->
+     <parent link="base_link"/>
+     <!--子级link-->
+     <child link="car_camera"/>
+     <!--设置偏移量-->
+     <!--
+    x：0.08
+    y: 0m
+    z：0.06m
+    -->
+     <origin xyz="${camera_link_x} ${camera_link_y} ${camera_link_z}" rpy="0 0 0"/>
+     <axis xyz="0 0 1"/>
+</joint>  
+</robot>

@@ -1,0 +1,8 @@
+prefix=/home/wheeltec/demo03_ws/devel
+
+Name: ares_navigation
+Description: Description of ares_navigation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

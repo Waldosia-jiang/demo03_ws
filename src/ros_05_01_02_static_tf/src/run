@@ -1,0 +1,2 @@
+rosrun tf2_ros static_transform_publisher x偏移量 y偏移量 z偏移量 z偏航角度 y俯仰角度 x翻滚角度 父级坐标系 子级坐标系
+rosrun tf2_ros static_transform_publisher 0.2 0 0.5 0 0 0 /baselink /laser

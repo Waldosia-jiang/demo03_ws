@@ -1,0 +1,66 @@
+<!--创建一个机器人模型（盒装），显示在Gazebo-->
+<robot name="mycar">
+   <link name="base_link">
+      <!--可视化标签-->
+        <visual>
+        <!--1.形状-->
+        <geometry>
+        <!--1.1立方体-->
+        <box size="0.8 0.2 0.1"/>
+        <!--1.2圆柱-->
+        <!--<cylinder radius="0.3" length="1"/>-->
+        <!--1.3球体-->
+        <!--<sphere radius="2"/>-->
+        <!--1.4皮肤-->
+        <!--<mesh filename="package://urdf01_rviz/meshes/autolabor_mini.stl"/>-->
+        </geometry>
+        <!--2.偏移量和倾斜幅度-->
+         <!--
+             x y z分别设置机器人在 x y z的偏移量
+             rpy用于设置倾斜弧度x（翻滚） y（俯仰） z（偏航）
+         -->
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+        <!--3.颜色-->
+        <!--
+          rgba:
+          r=red
+          g=green
+          b=blue
+          a=透明度
+          四者取值【0，1】
+        -->
+        <material name="car_colar">
+           <color rgba="1 0 1 1"/>
+
+        </material>
+     </visual>
+     <!--设置碰撞参数 collision -->
+     <!--如果是标准几何体，直接复制 visual 的 geometry 和 origin 即可-->
+     <collision>
+     <geometry>
+        <!--1.1立方体-->
+        <box size="0.8 0.2 0.1"/>
+        </geometry>
+        <!--2.偏移量和倾斜幅度-->
+         <!--
+             x y z分别设置机器人在 x y z的偏移量
+             rpy用于设置倾斜弧度x（翻滚） y（俯仰） z（偏航）
+         -->
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+     </collision>
+     <!--设置惯性矩阵-->
+     <inertial>
+        <origin xyz="0 0 0"/>
+        <mass value="2"/>
+        <inertia ixx="1" ixy="0" ixz="0" iyy="0" iyz="1" izz="1"/>
+     </inertial>
+    
+    </link>
+
+    <!--gazebo有自己的颜色标签设置-->
+    <gazebo reference="base_link">
+    <!--颜色参数区分大小写-->
+    <material>Gazebo/Red</material>
+    </gazebo>
+
+</robot>

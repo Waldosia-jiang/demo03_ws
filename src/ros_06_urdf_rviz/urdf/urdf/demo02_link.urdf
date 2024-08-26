@@ -1,0 +1,51 @@
+<!-- 
+6.3.2 URDF语法详解02_link
+    link
+    urdf 中的 link 标签用于描述机器人某个部件(也即刚体部分)的外观和物理属性，比如: 
+    机器人底座、轮子、激光雷达、摄像头...每一个部件都对应一个 link, 在 link 标签内，
+    可以设计该部件的形状、尺寸、颜色、惯性矩阵、碰撞参数等一系列属性
+
+    1.属性
+    name 为连杆命名
+ -->
+ 
+<!--设置不同形状的机器人部件-->
+<robot name="mycar">
+   <link name="base_link">
+      <!--可视化标签-->
+        <visual>
+        <!--1.形状-->
+        <geometry>
+        <!--1.1立方体-->
+        <!-->box size="0.8 0.2 0.1"/>-->
+        <!--1.2圆柱-->
+        <!--<cylinder radius="0.3" length="1"/>-->
+        <!--1.3球体-->
+        <!--<sphere radius="2"/>-->
+        <!--1.4皮肤-->
+        <mesh filename="package://ros_06_urdf_rviz/meshes/autolabor_mini.stl"/>
+        </geometry>
+        <!--2.偏移量和倾斜幅度-->
+         <!--
+             x y z分别设置机器人在 x y z的偏移量
+             rpy用于设置倾斜弧度x（翻滚） y（俯仰） z（偏航）
+
+         -->
+         <origin xyz="0 0 0.1" rpy="1.570796 0 1.570796"/>
+        <!--3.颜色-->
+        <!--
+          rgba:
+          r=red
+          g=green
+          b=blue
+          a=透明度
+          四者取值【0，1】
+        -->
+        <material name="car_colar">
+           <color rgba="0 0 1 1"/>
+
+        </material>
+     </visual>
+    </link>
+
+</robot>

@@ -1,0 +1,37 @@
+<launch>
+<!-- 
+    1.属性
+command="load | dump | delete" (可选，默认 load) 加载、导出或删除参数
+file="$(find 功能包名) /path" 加载或导出到的 yaml 文件
+param="参数名称"
+ns="命名空间" (可选)
+
+    2.子级标签 无 
+-->
+
+<!-- rosparam 使用：操作参数服务器 -->
+<!-- 
+    rosparam 参数设置 :向参数服务器设置参数
+    设置格式：
+            格式一：launch下，node外
+            格式二：node下(在 <node> 标签中时，相当于私有命名空间。)
+-->
+
+<!-- 格式一：launch下，node外 -->
+<!-- 加载参数 -->
+<rosparam command="load" file="$(find ros_04_plumbing_rosparam)/launch/params.yaml"/>
+<!-- 导出参数
+<rosparam command="dump" file="$(find ros_04_plumbing_rosparam)/launch/params_out.yaml"/> -->
+
+<node pkg= "turtlesim" type= "turtlesim_node" name= "turtle1" output="screen" respawn="true">
+      <!-- 格式二：node下 -->
+      <rosparam command="load" file="$(find ros_04_plumbing_rosparam)/launch/params.yaml"/>
+</node>
+
+<!--程序控制-->
+<node pkg= "turtlesim_control" type= "demo01_turtlesim_control" name= "control" required="true"/>
+
+<!--显示rqt_graph-->
+<node pkg= "rqt_graph" type= "rqt_graph" name= "graph"  />
+
+</launch>

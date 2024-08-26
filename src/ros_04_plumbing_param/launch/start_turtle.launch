@@ -1,0 +1,34 @@
+<launch>
+<!-- 
+    1.属性
+    name="命名空间/参数名" 参数名称，可以包含命名空间
+    value="xxx" (可选) 定义参数值，如果此处省略，必须指定外部文件作为参数源
+    type="str | int | double | bool | yaml" (可选) 指定参数类型，如果未指定，roslaunch 会尝试确定参数类型，规则如下:
+    如果包含 '.' 的数字解析未浮点型，否则为整型
+    "true" 和 "false" 是 bool 值(不区分大小写)
+    其他是字符串
+
+    2.子级标签 无 
+-->
+
+<!-- 
+    param 参数设置 :向参数服务器设置参数
+    设置格式：
+            格式一：launch下，node外
+            格式二：node下(在 <node> 标签中时，相当于私有命名空间。)
+-->
+<!-- 格式一：launch下，node外 -->
+<param name="param_A" type="int" value="100"/>
+
+<node pkg= "turtlesim" type= "turtlesim_node" name= "turtle1" output="screen" respawn="true">
+      <!-- 格式二：node下 -->
+      <param name="param_B" type="double" value="3.14"/>
+</node>
+
+<!--程序控制-->
+<node pkg= "turtlesim_control" type= "demo01_turtlesim_control" name= "control" required="true"/>
+
+<!--显示rqt_graph-->
+<node pkg= "rqt_graph" type= "rqt_graph" name= "graph"  />
+
+</launch>

@@ -1,0 +1,24 @@
+<!--
+    tf2 实现小乌龟跟随案例
+-->
+<launch>
+        <!-- 启动乌龟节点与控制节点 -->
+        <!-- <node pkg="turtlesim" type="turtlesim_node" name="turtle1" output="screen" /> -->
+
+        <node pkg="ros_05_01_06_muti_dynamic_tf" type="04_pose_sub_L_F_node" name="caster2" output="screen" />
+
+        <node pkg="ros_05_01_06_muti_dynamic_tf" type="04_pose_sub_R_F_node" name="caster3" output="screen" />
+
+        <!-- <node pkg="ros_05_01_06_muti_dynamic_tf" type="05_detal_x_detal_y_node" name="caster4" output="screen" /> -->
+
+        <!-- <node pkg="ros_05_01_06_muti_dynamic_tf" type="06_formation_controller_L_node" name="caster4" output="screen" /> -->
+
+        <!--启动rqt-->
+        <!-- <node pkg= "rqt_gui" type= "rqt_gui" name= "gui"  /> -->
+
+        <!--显示rqt_graph-->
+        <node pkg= "rqt_graph" type= "rqt_graph" name= "graph"  />
+
+        <!--启动rviz-->
+        <!-- <node pkg= "rviz" type= "rviz" name= "rviz_graph" /> -->
+</launch>

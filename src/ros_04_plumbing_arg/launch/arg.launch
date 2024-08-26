@@ -1,0 +1,31 @@
+<launch>
+<!-- 
+    <arg>标签是用于动态传参，类似于函数的参数，可以增强launch文件的灵活性
+
+      1.属性
+      name="参数名称"
+      default="默认值" (可选)
+      value="数值" (可选) 不可以与 default 并存
+      doc="描述"  参数说明
+
+      2.子级标签
+      无
+-->
+
+<!-- 
+    需求：演示arg的使用，需要使用多个参数，这些参数使用同一个数值（小车的长度），怎么设置？
+-->
+     <!-- 
+     <param name="A" value="0.55" /> 
+     <param name="B" value="0.55" /> 
+     <param name="C" value="0.55" />  
+     -->
+
+     <arg name="car_length" default="0.55"/>
+     <param name="A" value="$(arg car_length)" /> 
+     <param name="B" value="$(arg car_length)" /> 
+     <param name="C" value="$(arg car_length)" /> 
+     
+     <!-- roslaunch ros_04_plumbing_arg arg.launch  car_length:=0.8 -->
+     
+</launch>

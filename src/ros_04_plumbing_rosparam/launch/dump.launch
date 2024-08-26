@@ -1,0 +1,9 @@
+<launch>
+
+<!-- 删除参数 -->
+<rosparam command="delete" param="rgb_B"/>
+
+<!-- 导出参数 -->
+<rosparam command="dump" file="$(find ros_04_plumbing_rosparam)/launch/params_out.yaml"/>
+
+</launch>

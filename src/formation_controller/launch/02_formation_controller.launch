@@ -1,0 +1,23 @@
+<!--
+    编队控制
+-->
+<launch>
+        
+        
+        <!-- 启动编队控制器 -->
+        <node pkg="formation_controller" type="01_controller_A_node" name="robot_2_follower" output="screen" args="robot2"/> 
+        <node pkg="formation_controller" type="01_controller_A_node" name="robot_3_follower" output="screen" args="robot3"/>
+        
+
+        <!-- <node pkg="formation_controller" type="01_controller_B_node" name="robot_2_follower" output="screen" args="robot2"/> 
+        <node pkg="formation_controller" type="01_controller_B_node" name="robot_3_follower" output="screen" args="robot3"/> -->
+
+        <!-- <node pkg="formation_controller" type="01_controller_C_node" name="robot_2_follower" output="screen" args="robot2"/> 
+        <node pkg="formation_controller" type="01_controller_C_node" name="robot_3_follower" output="screen" args="robot3"/> -->
+
+        
+
+        <!--显示rqt_graph-->
+        <node pkg= "rqt" type= "rqt" name= "rqt"  />
+
+</launch>

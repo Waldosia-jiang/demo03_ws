@@ -1,0 +1,31 @@
+<!--
+    tf2 实现小乌龟跟随案例
+-->
+<launch>
+        <arg name="robot_name_1" default="robot1" />
+        <arg name="robot_name_2" default="robot2" /> 
+        <arg name="robot_name_3" default="robot3" /> 
+
+        <arg name="L_e"  default="1"/>
+
+        <!-- 启动目标点发送程序 -->
+
+        <node pkg="simple_navigation_goals" type="simple_navigation_goals_formtion_L_node" name="follow_L" output="screen" >
+            
+            <!-- <param name="leader_robot_name" value="$(arg robot_name_2)" /> -->
+            <!-- <param name="follower_robot_name" value="$(arg robot_name_2)" />
+            <param name="L_e" value="$(arg L_e)" />
+            <param name="theta_expected" value="$(eval  3.14159 * 5 /6)" /> -->
+
+        </node>
+
+        <node pkg="simple_navigation_goals" type="simple_navigation_goals_formtion_R_node" name="follow_R" output="screen" >
+                        
+            <!-- <param name="leader_robot_name" value="$(arg robot_name_2)" /> -->
+            <!-- <param name="follower_robot_name" value="$(arg robot_name_3)" />
+            <param name="L_e" value="$(arg L_e)" />
+            <param name="theta_expected" value="$(eval  -3.14159 * 5 /6)" /> -->
+
+        </node>
+        
+</launch>

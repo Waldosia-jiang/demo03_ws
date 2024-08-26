@@ -1,0 +1,8 @@
+prefix=/home/wheeltec/demo03_ws/install
+
+Name: icarmulti_formation
+Description: Description of icarmulti_formation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: stage stage_ros roscpp std_msgs geometry_msgs sensor_msgs nav_msgs

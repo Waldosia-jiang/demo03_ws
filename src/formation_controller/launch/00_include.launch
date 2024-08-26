@@ -1,0 +1,23 @@
+<!--
+    实现队形变换
+-->
+<launch>
+         <!-- 启动仿真环境加载模型 -->
+        <include file= "$(find formation_controller)/launch/01_leader_follower.launch" />
+
+        <!--  启动队形控制程序 -->
+        <include file= "$(find formation_controller)/launch/02_formation_controller.launch" />
+
+        <!--  启动Move_base目标点发送程序 -->
+        <!-- <include file= "$(find formation_controller)/launch/03_simple_navigation_goals.launch" /> -->
+
+         <!--  启动误差和加速度计算程序 -->
+        <!-- <include file= "$(find formation_controller)/launch/04_detal_dis_acc.launch" /> -->
+
+        <!--  启动测距程序 -->
+        <include file= "$(find formation_controller)/launch/06_lasrscan_width.launch" />
+
+        <!--  启动队形变换 -->
+        <include file= "$(find formation_controller)/launch/07_changing_formtion.launch" />
+
+</launch>

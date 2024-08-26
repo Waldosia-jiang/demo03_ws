@@ -1,0 +1,16 @@
+<!--
+    计算跟随机器人直线距离误差
+-->
+<launch>
+
+    <node pkg="formation_controller" type="03_detal_dis_node" name="follow_L_dis" output="screen" args="robot2"/>
+                    
+    <node pkg="formation_controller" type="03_detal_dis_node" name="follow_R_dis" output="screen" args="robot3"/> 
+
+    <node pkg="formation_controller" type="02_acc_node" name="leader_acc" output="screen" args="robot1"/>
+
+    <node pkg="formation_controller" type="02_acc_node" name="follow_L_acc" output="screen" args="robot2"/>
+                    
+    <node pkg="formation_controller" type="02_acc_node" name="follow_R_acc" output="screen" args="robot3"/>                   
+          
+</launch>

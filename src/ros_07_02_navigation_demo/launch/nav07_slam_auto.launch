@@ -1,0 +1,19 @@
+<!--集成导航相关的launch文件-->
+<launch>
+  <!--地图服务-->
+  <include file="$(find ros_07_02_navigation_demo)/launch/nav01_slam.launch"/>
+
+   <!--地图服务-->
+  <include file="$(find ros_07_02_navigation_demo)/launch/nav02_map_save.launch"/>
+
+  <!--地图服务-->
+  <include file="$(find ros_07_02_navigation_demo)/launch/nav03_map_server.launch"/>
+ 
+  <!--amcl文件-->
+  <include file="$(find ros_07_02_navigation_demo)/launch/nav04_amcl.launch"/>
+
+  <!--path-->
+  <include file="$(find ros_07_02_navigation_demo)/launch/nav05_path.launch">
+  </include>
+
+</launch>

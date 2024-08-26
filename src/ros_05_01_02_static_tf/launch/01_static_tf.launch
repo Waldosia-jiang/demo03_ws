@@ -1,0 +1,12 @@
+<launch>
+
+<!--static_tf_pub-->
+<node pkg= "ros_05_01_02_static_tf" type= "static_tf_pub_node" name= "static_tf_pub" output="screen" />
+
+<!--static_tf_pub-->
+<node pkg= "ros_05_01_02_static_tf" type= "static_tf_sub_node" name= "static_tf_sub" output="screen" />
+
+<!--显示rqt_graph-->
+<node pkg= "rqt_graph" type= "rqt_graph" name= "graph"  />
+
+</launch>

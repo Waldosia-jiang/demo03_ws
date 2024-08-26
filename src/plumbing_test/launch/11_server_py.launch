@@ -1,0 +1,11 @@
+<!--launch编写发布订阅节点启动-->
+<launch>
+<!--启动服务端节点-->
+<node pkg= "plumbing_server_client" type= "demo01_server.py" name= "server" output="screen" />
+
+<!--通过rosservice 验证服务端是否有效-->
+<!-- rosservice call 节点名 参数-->
+<!--显示rqt_graph-->
+<node pkg= "rqt_graph" type= "rqt_graph" name= "graph" output="screen" />
+
+</launch>

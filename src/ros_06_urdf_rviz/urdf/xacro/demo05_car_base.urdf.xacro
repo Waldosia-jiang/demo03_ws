@@ -1,0 +1,143 @@
+<robot name="mycar" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!--底盘参数-->
+ <xacro:property name="foot_print_radius" value="0.001"/>
+ <xacro:property name="base_link_radius" value="0.1"/>
+ <xacro:property name="base_link_length" value="0.08"/>
+ <xacro:property name="base_link_lidi" value="0.015"/>
+ <xacro:property name="base_link_z" value="${base_link_length/2+base_link_lidi}"/>
+
+<!--驱动轮参数-->
+ <xacro:property name="wheel_radius" value="0.0325"/>
+ <xacro:property name="wheel_length" value="0.015"/>
+ <xacro:property name="Pi" value="3.1415927"/>
+ <xacro:property name="wheel_link_z" value="${-(base_link_length/2+base_link_lidi-wheel_radius)}"/>
+
+<!--万向轮参数-->
+ <xacro:property name="small_wheel_radius" value="0.0075"/>
+ <!-- Z的偏移量 = 车体高度/2 + 离地间距 - 万向轮半径-->
+ <xacro:property name="small_wheel_z" value="${-(base_link_length/2+base_link_lidi-small_wheel_radius)}"/>
+
+  <!--添加一个尺寸极小的link，再去关联初始link和base_link，关节的高度
+  刚好和bese_link下沉的高度一致（半个底盘高度）-->
+<link name="base_footprint">
+    <visual>
+       <geometry>
+          <sphere radius="${foot_print_radius}"/>
+       </geometry>
+    </visual>
+</link>
+
+<!--添加底盘-->
+<!--
+    形状：圆柱
+    半径:10cm
+    高度：8cm
+    离地间距：1.5cm
+-->
+<link name="base_link">
+    <visual>
+       <geometry>
+          <cylinder radius="${base_link_radius}" length="${base_link_length}"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+       <material name="baselink_color">
+           <color rgba="0.7 0.8 0 0.5"/>
+       </material>
+    </visual>
+</link>
+
+ <!--添加一个关节关联 base_link 和 base_footprint -->
+<joint name="base_link2base_footprint" type="fixed">
+     <!--父级link-->
+     <parent link="base_footprint"/>
+     <!--子级link-->
+     <child link="base_link"/>
+     <!--设置偏移量:车体高度/2 + 离地间距-->
+     <origin xyz="0 0 ${base_link_z}" rpy="0 0 0"/>
+</joint>
+
+<!--添加驱动轮-->
+<!--
+    形状：圆柱
+    半径:3.25cm
+    宽度：1.5cm
+    wheel_name:left or right
+    flag:1 or -1
+-->
+<xacro:macro name="wheel_func" params="wheel_name flag">
+
+<link name="${wheel_name}_wheel">
+    <visual>
+       <geometry>
+          <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="${Pi/2} 0 0"/>
+       <material name="wheel_color">
+           <color rgba="0 0 0 0.5"/>
+       </material>
+    </visual>
+</link>
+
+<!--添加一个关节关联 base_link 和 ${wheel_name}_wheel -->
+<joint name="${wheel_name}_wheel2base_link" type="continuous">
+     <!--父级link-->
+     <parent link="base_link"/>
+     <!--子级link-->
+     <child link="${wheel_name}_wheel"/>
+     <!--设置偏移量-->
+     <!--
+    x：无偏移
+    y:半径0.1m
+    z：1.5cm
+    -->
+     <origin xyz="0 ${0.1*flag} ${wheel_link_z}" rpy="0 0 0"/>
+     <axis xyz="0 1 0"/>
+</joint>
+
+</xacro:macro>
+<!--调用 xacro宏 生成左轮和右轮-->
+<xacro:wheel_func wheel_name="left" flag="1"/>
+<xacro:wheel_func wheel_name="right" flag="-1"/>
+
+
+<xacro:macro name="small_wheel_func" params="small_wheel_name flag1">
+<!--添加万向轮-->
+<!--
+    形状：球体
+    半径:0.0075m
+-->
+<link name="${small_wheel_name}_wheel">
+    <visual>
+       <geometry>
+          <sphere radius="${small_wheel_radius}"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+       <material name="wheel_color">
+           <color rgba="0 0 0 0.5"/>
+       </material>
+    </visual>
+</link>
+
+<!--添加一个关节关联 base_link 和 ${small_wheel_name}_wheel -->
+<joint name="${small_wheel_name}_wheel2base_link" type="continuous">
+     <!--父级link-->
+     <parent link="base_link"/>
+     <!--子级link-->
+     <child link="${small_wheel_name}_wheel"/>
+     <!--设置偏移量-->
+     <!--
+    x：无偏移
+    y:半径0.1m
+    z：1.5cm
+    -->
+     <origin xyz="${0.08*flag1} 0 ${small_wheel_z}" rpy="0 0 0"/>
+     <axis xyz="1 1 1"/>
+</joint>
+
+</xacro:macro>
+<!--调用 xacro宏 生成前轮和后轮-->
+<xacro:small_wheel_func small_wheel_name="fornt" flag1="1"/>
+<xacro:small_wheel_func small_wheel_name="back" flag1="-1"/>
+
+</robot>

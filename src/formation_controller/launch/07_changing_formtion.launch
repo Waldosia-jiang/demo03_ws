@@ -1,0 +1,8 @@
+<!--
+    实现队形变换
+-->
+<launch>
+
+        <node pkg="formation_controller" type="07_changing_formtion_node" name="transformtion" output="screen" />
+
+</launch>

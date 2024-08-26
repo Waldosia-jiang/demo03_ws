@@ -1,0 +1,9 @@
+<!--launch编写发布订阅节点启动-->
+<launch>
+<!--启动发布方节点-->
+<node pkg= "plumbing_pub_sub" type= "demo01_pub" name= "talker" />
+
+<!--显示rqt_graph-->
+<node pkg= "rqt_graph" type= "rqt_graph" name= "graph" />
+
+</launch>

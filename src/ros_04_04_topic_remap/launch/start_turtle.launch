@@ -1,0 +1,35 @@
+<launch>
+<!--respawn = "true | false" (可选) 如果节点退出，是否自动重启-->
+<!--required="true | false" (可选)  该节点是否必须，如果为 true,那么如果该节点退出，将杀死整个 roslaunch-->
+<!--ns="xxx" (可选) 在指定命名空间 xxx 中启动节点,可以用来解决重名问题-->
+
+<!-- 
+    1.属性
+    from="xxx" 原始话题名称 to="yyy" 目标名称
+-->
+
+<node pkg= "turtlesim" type= "turtlesim_node" name= "turtle1" output="screen" respawn="true" >
+      <!-- 用于话题重命名 -->
+      <!-- 将乌龟话题设置和键盘控制节点一致 -->
+      <!-- <remap from="/turtle1/cmd_vel" to="/cmd_vel"/> -->
+</node>
+
+<!--键盘控制1-->
+<node pkg= "turtlesim" type= "turtle_teleop_key" name= "key1"  />
+
+<!-- 命令行操作 -->
+<!-- 
+      rosrun teleop_twist_keyboard teleop_twist_keyboard.py /cmd_vel:=/turtle1/cmd_vel 
+-->
+
+<!--键盘控制2-->
+<node pkg= "teleop_twist_keyboard" type= "teleop_twist_keyboard.py" name= "key2" output="screen">
+      <!-- 用于话题重命名 -->
+      <!-- 将键盘控制节点设置和乌龟话题一致 -->
+      <remap from="/cmd_vel" to="/turtle1/cmd_vel"/>
+</node>
+
+<!--显示rqt_graph-->
+<node pkg= "rqt_graph" type= "rqt_graph" name= "graph" />
+
+</launch>

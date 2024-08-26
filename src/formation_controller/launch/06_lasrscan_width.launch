@@ -1,0 +1,15 @@
+<!--
+    实现发布期期望坐标系
+-->
+<launch>
+
+        <node pkg="formation_controller" type="06_lasrscan_width_node" name="width_01" output="screen" args="robot1" />
+
+        <node pkg="formation_controller" type="06_lasrscan_width_node" name="width_02" output="screen" args="robot2" />
+
+        <node pkg="formation_controller" type="06_lasrscan_width_node" name="width_03" output="screen" args="robot3" />
+
+
+        <!-- <node pkg= "rqt_graph" type= "rqt_graph" name= "graph"  /> -->
+
+</launch>

@@ -1,0 +1,119 @@
+<robot name="mycar" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!--添加雷达部件-->
+<!--
+    雷达参数（圆柱）：
+    高度:0.04
+    半径:0.03
+    关节属性：x y z 偏移量(0 0 0)
+-->
+
+<!--雷达参数-->
+ <xacro:property name="laser_radius" value="0.03"/> <!--半径-->
+ <xacro:property name="laser_height" value="0.04"/> <!--高度-->
+ <xacro:property name="laser_z" value="0.04"/> <!--离地高度-->
+ <xacro:property name="laser_mass" value="0.4"/> <!--重量-->
+
+<!--雷达连杆参数-->
+ <xacro:property name="laser_support_radius" value="0.005"/> <!--支柱半径-->
+ <xacro:property name="laser_support_height" value="0.075"/> <!--支柱高度-->
+ <xacro:property name="laser_support_mass" value="0.1"/> <!--支柱高度-->
+
+ <!--关节属性偏移量-->
+ <xacro:property name="laser_link_x" value="0"/>
+ <xacro:property name="laser_link_y" value="0"/>
+ <xacro:property name="laser_link_base_link_z" value="${base_link_length/2 + laser_support_height/2-0.004}"/>
+ <xacro:property name="laser_link_car_laser_z" value="${laser_support_height/2 + laser_height/2-0.004}"/>
+
+
+<link name="car_laser">
+    <visual>
+       <geometry>
+          <cylinder radius="${laser_radius}" length="${laser_height}"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+       <material name="wheel_color">
+           <color rgba="1 1 0 0.5"/>
+       </material>
+    </visual>
+    
+    <collision>
+    <geometry>
+          <cylinder radius="${laser_radius}" length="${laser_height}"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+    <!--调用惯性矩阵函数-->
+    <xacro:cylinder_inertial_matrix m="${laser_mass}" r="${laser_radius}" h="${laser_height}"/>
+
+</link>
+
+<gazebo reference="car_laser">
+   <material>Gazebo/Black</material>
+</gazebo>
+
+<!--添加雷达支架部件-->
+<!--
+    雷达支架参数（圆柱）：
+    高度:0.2
+    半径:0.01
+    关节属性：x y z 偏移量(0 0 0.14)
+-->
+<link name="laser_support">
+    <visual>
+       <geometry>
+          <cylinder radius="${laser_support_radius}" length="${laser_support_height}"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+       <material name="wheel_color">
+           <color rgba="1 1 0 0.5"/>
+       </material>
+    </visual>
+    <collision>
+       <geometry>
+          <cylinder radius="${laser_support_radius}" length="${laser_support_height}"/>
+       </geometry>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+    <!--调用惯性矩阵函数-->
+    <xacro:cylinder_inertial_matrix m="${laser_support_mass}" r="${laser_support_radius}" h="${laser_support_height}"/>
+
+</link>
+
+<gazebo reference="laser_support">
+   <material>Gazebo/Green</material>
+</gazebo>
+
+<!--添加一个关节关联 base_link 和 laser_support -->
+<joint name="car_laser2base_link" type="fixed">
+     <!--父级link-->
+     <parent link="base_link"/>
+     <!--子级link-->
+     <child link="laser_support"/>
+     <!--设置偏移量-->
+     <!--
+    x:0
+    y:0
+    z:0.10m
+    -->
+     <origin xyz="${laser_link_x} ${laser_link_y} ${laser_link_base_link_z}" rpy="0 0 0"/>
+     <axis xyz="0 0 0"/>
+</joint>
+
+<!--添加一个关节关联 car_laser 和 laser_support-->
+<joint name="car_laser2laser_support" type="fixed">
+     <!--父级link-->
+     <parent link="laser_support"/>
+     <!--子级link-->
+     <child link="car_laser"/>
+     <!--设置偏移量-->
+     <!--
+    x:0
+    y:0
+    z:0.11
+    -->
+     <origin xyz="${laser_link_x} ${laser_link_y} ${laser_link_car_laser_z}" rpy="0 0 0"/>
+     <axis xyz="0 0 1"/>
+</joint>
+
+</robot>

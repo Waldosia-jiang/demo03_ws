@@ -1,0 +1,12 @@
+<!--
+    实现发布期期望坐标系
+-->
+<launch>
+
+        <node pkg="formation_controller" type="04_pose_virture_node" name="virture_L" output="screen" args="robot2" />
+
+        <node pkg="formation_controller" type="04_pose_virture_node" name="virture_R" output="screen" args="robot3" />
+
+        <node pkg= "rqt_graph" type= "rqt_graph" name= "graph"  />
+
+</launch>

@@ -1,0 +1,20 @@
+<launch>
+<!-- rosrun名称重映射 -->
+<!--启动乌龟GUI-->
+<node pkg= "turtlesim" type= "turtlesim_node" name= "turtle1" output="screen"/>
+<node pkg= "turtlesim" type= "turtlesim_node" name= "turtle2" output="screen"/>
+
+<!-- rosrun设置命名空间 -->
+<!--启动乌龟GUI-->
+<node pkg= "turtlesim" type= "turtlesim_node"  output="screen" ns= "ns_1" name="turtle1"/>
+<node pkg= "turtlesim" type= "turtlesim_node"  output="screen" ns= "ns_2" name="turtle2"/>
+
+<!-- rosrun命名空间与名称重映射叠加 -->
+<!--启动乌龟GUI-->
+<node pkg= "turtlesim" type= "turtlesim_node"  output="screen" ns= "ns_3" name="turtle1"/>
+<node pkg= "turtlesim" type= "turtlesim_node"  output="screen" ns= "ns_4" name="turtle2"/>
+
+<!--显示rqt_graph-->
+<node pkg= "rqt_graph" type= "rqt_graph" name= "graph"  />
+
+</launch>

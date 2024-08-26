@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/sulab-slam/Workspace/Code/Open_source/ros_ws/devel/include/**",
+                "/opt/ros/noetic/include/**",
+                "/home/sulab-slam/Workspace/Code/Open_source/ros_ws/src/robot_pose_ekf/include/**",
+                "/usr/include/**",
+                "/opt/ros/noetic/include",
+                "/home/sulab-slam/demo03_ws/devel/include/**",
+                "/home/sulab-slam/demo03_ws/src/plumbing_headfile/include/**",
+                "/home/sulab-slam/demo03_ws/src/plumbing_src/include/**",
+                "${workspaceFolder}/devel/include"
+            ],
+            "name": "ROS"
+        }
+    ],
+    "version": 4
+}

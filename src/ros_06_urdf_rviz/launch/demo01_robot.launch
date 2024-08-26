@@ -1,0 +1,8 @@
+<launch>
+<!--1.在参数服务器中载入 urdf 文件-->
+<param name="robot_description" textfile="$(find ros_06_urdf_rviz)/urdf/urdf/demo01_robot.urdf"/>
+
+<!--启动 rviz -->
+<node pkg="rviz" type="rviz" name="rviz" args="-d $(find ros_06_urdf_rviz)/config/01.rviz"/>
+
+</launch>

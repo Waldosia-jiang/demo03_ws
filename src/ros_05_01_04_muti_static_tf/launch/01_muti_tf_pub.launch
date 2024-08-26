@@ -1,0 +1,20 @@
+<launch>
+<!--son1静态坐标转换-->
+<node pkg="tf2_ros" type="static_transform_publisher" name="son1" args="1 1 0 0 0 0 /world /son1" />
+<!--son2静态坐标转换-->
+<node pkg="tf2_ros" type="static_transform_publisher" name="son2" args="2 3 0 0 0 0 /world /son2" />
+
+<!--son1相对于son2坐标转换-->
+<node pkg="ros_05_01_04_muti_static_tf" type="01_muti_tf_sub_node" name="transform"
+        output="screen" />
+
+<!--显示frame_graph-->
+<node pkg= "tf2_tools" type= "view_frames.py" name= "tf_tree"  />
+
+<!--显示rqt_graph-->
+<node pkg= "rqt_graph" type= "rqt_graph" name= "graph"  />
+
+<!--启动rviz-->
+<node pkg= "rviz" type= "rviz" name= "rviz_graph" />
+
+</launch>

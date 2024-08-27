@@ -1,5 +1,17 @@
-
+//上传数据
 git add .
 git commit -m "commit"
 git push -u origin main
 
+//强制推送
+git push --force
+
+
+//生成秘钥
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+ssh -T git@github.com
+
+//将本地分支重置为远程分支的最新状态，这会覆盖本地的所有更改
+git reset --hard origin/<branch-name>

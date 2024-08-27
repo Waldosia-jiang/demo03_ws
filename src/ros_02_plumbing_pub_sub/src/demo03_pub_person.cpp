@@ -24,9 +24,11 @@ int main(int argc, char *argv[])
    //5.编写发布逻辑，发布数据
    //5-1.创建被发布的数据
    plumbing_pub_sub::Person person;
+
    person.name="张三";
    person.age = 10;
    person.height = 1.73;
+   
    //5-2.设置发布频率
    ros::Rate rate(1);
    //5-3.循环发布数据

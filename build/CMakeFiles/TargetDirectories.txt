@@ -250,6 +250,8 @@
 /home/wheeltec/demo03_ws/build/ros_02_plumbing_pub_sub/CMakeFiles/rebuild_cache.dir
 /home/wheeltec/demo03_ws/build/ros_02_plumbing_pub_sub/CMakeFiles/edit_cache.dir
 /home/wheeltec/demo03_ws/build/ros_02_plumbing_pub_sub/CMakeFiles/test.dir
+/home/wheeltec/demo03_ws/build/ros_02_plumbing_pub_sub/CMakeFiles/demo04_sub_person.dir
+/home/wheeltec/demo03_ws/build/ros_02_plumbing_pub_sub/CMakeFiles/demo03_pub_person.dir
 /home/wheeltec/demo03_ws/build/ros_02_plumbing_pub_sub/CMakeFiles/demo02_sub.dir
 /home/wheeltec/demo03_ws/build/ros_02_plumbing_pub_sub/CMakeFiles/ros_02_plumbing_pub_sub_generate_messages.dir
 /home/wheeltec/demo03_ws/build/ros_02_plumbing_pub_sub/CMakeFiles/_ros_02_plumbing_pub_sub_generate_messages_check_deps_Person.dir

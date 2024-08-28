@@ -1,10 +1,10 @@
 #include "ros/ros.h"
-// #include "plumbing_pub_sub/Person.h"
+#include "ros_02_plumbing_pub_sub/Person.h"
 
 /*
 发布方：发布人的消息
 1.包含头文件
-  #include "plumbing_pub_sub/Person.h"
+  #include "ros_02_plumbing_pub_sub/Person.h"
 2.初始化ROS节点
 3.创建节点句柄
 4.创建发布者对象
@@ -20,15 +20,15 @@ int main(int argc, char *argv[])
    //3.创建节点句柄
    ros::NodeHandle nh;
    //4.创建发布者对象
-   ros::Publisher pub = nh.advertise<plumbing_pub_sub::Person>("liaotian",10);
+   ros::Publisher pub = nh.advertise<ros_02_plumbing_pub_sub::Person>("liaotian",10);
    //5.编写发布逻辑，发布数据
    //5-1.创建被发布的数据
-   plumbing_pub_sub::Person person;
+   ros_02_plumbing_pub_sub::Person person;
 
    person.name="张三";
    person.age = 10;
    person.height = 1.73;
-   
+
    //5-2.设置发布频率
    ros::Rate rate(1);
    //5-3.循环发布数据

@@ -1208,6 +1208,32 @@ use_haha/fast:
 .PHONY : use_haha/fast
 
 #=============================================================================
+# Target rules for targets named demo04_sub_person
+
+# Build rule for target.
+demo04_sub_person: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 demo04_sub_person
+.PHONY : demo04_sub_person
+
+# fast build rule for target.
+demo04_sub_person/fast:
+	$(MAKE) -f ros_02_plumbing_pub_sub/CMakeFiles/demo04_sub_person.dir/build.make ros_02_plumbing_pub_sub/CMakeFiles/demo04_sub_person.dir/build
+.PHONY : demo04_sub_person/fast
+
+#=============================================================================
+# Target rules for targets named demo03_pub_person
+
+# Build rule for target.
+demo03_pub_person: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 demo03_pub_person
+.PHONY : demo03_pub_person
+
+# fast build rule for target.
+demo03_pub_person/fast:
+	$(MAKE) -f ros_02_plumbing_pub_sub/CMakeFiles/demo03_pub_person.dir/build.make ros_02_plumbing_pub_sub/CMakeFiles/demo03_pub_person.dir/build
+.PHONY : demo03_pub_person/fast
+
+#=============================================================================
 # Target rules for targets named demo02_sub
 
 # Build rule for target.
@@ -3757,6 +3783,8 @@ help:
 	@echo "... plumbing_server_client_generate_messages_nodejs"
 	@echo "... use_haha_node"
 	@echo "... use_haha"
+	@echo "... demo04_sub_person"
+	@echo "... demo03_pub_person"
 	@echo "... demo02_sub"
 	@echo "... ros_02_plumbing_pub_sub_generate_messages"
 	@echo "... _ros_02_plumbing_pub_sub_generate_messages_check_deps_Person"

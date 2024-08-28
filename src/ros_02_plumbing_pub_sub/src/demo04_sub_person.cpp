@@ -7,7 +7,7 @@
   #include "ros_02_plumbing_pub_sub/Person.h"
 2.初始化ROS节点
 3.创建节点句柄
-4.创建订阅者对象
+4.创建订阅者对象bie
 5.处理订阅的数据
 6.调用spin()函数
 */

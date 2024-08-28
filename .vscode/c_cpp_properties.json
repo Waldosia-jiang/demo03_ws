@@ -14,10 +14,13 @@
                 "/home/wheeltec/demo03_ws/src/plumbing_headfile/include/**",
                 "/home/wheeltec/demo03_ws/src/plumbing_src/include/**",
                 "${workspaceFolder}/devel/include/**",
-                "${workspaceFolder}/**",
-                "/opt/ros/noetic/include/rosconsole"
+                "${workspaceFolder}/**"
             ],
-            "name": "ROS"
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
         }
     ],
     "version": 4

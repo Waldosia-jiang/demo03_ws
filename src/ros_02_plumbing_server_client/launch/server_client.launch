@@ -1,0 +1,6 @@
+<launch>
+   
+    <node pkg="ros_02_plumbing_server_client" type="demo01_server" name="server"/>
+    <node pkg="ros_02_plumbing_server_client" type="demo02_client" name="client" />
+    
+</launch>

@@ -14,11 +14,11 @@
 
 */
 #include "ros/ros.h"
-#include "plumbing_server_client/Service1.h"
+#include "ros_02_plumbing_server_client/Service1.h"
 
 // bool 返回值由于标志是否处理成功
-bool doReq(plumbing_server_client::Service1::Request& request,
-          plumbing_server_client::Service1::Response& response){
+bool doReq(ros_02_plumbing_server_client::Service1::Request& request,
+           ros_02_plumbing_server_client::Service1::Response& response){
     //1.处理请求
     int num1 = request.num1;
     int num2 = request.num2;

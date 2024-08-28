@@ -18,7 +18,7 @@
 */
 // 1.包含头文件
 #include "ros/ros.h"
-#include "plumbing_server_client/Service1.h"
+#include "ros_02_plumbing_server_client/Service1.h"
 
 int main(int argc, char *argv[])
 {
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     // 3.创建 ROS 句柄
     ros::NodeHandle nh;
     // 4.创建 客户端 对象
-    ros::ServiceClient client = nh.serviceClient<plumbing_server_client::Service1>("AddInts");
+    ros::ServiceClient client = nh.serviceClient<ros_02_plumbing_server_client::Service1>("AddInts");
 
     // 问题：如果先启动客户端，回报异常
     // 需求：如果先启动客户端，不要直接抛出异常，而是挂起等待服务端启动
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     // client.waitForExistence();
 
     // 5.组织请求数据
-    plumbing_server_client::Service1 ai;
+    ros_02_plumbing_server_client::Service1 ai;
     // ai.request.num1 = 100;
     // ai.request.num2 = 200;
     ai.request.num1 = atoi(argv[1]);

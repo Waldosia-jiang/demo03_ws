@@ -8,13 +8,14 @@
             "includePath": [
                 "/home/wheeltec/Workspace/Code/Open_source/ros_ws/devel/include/**",
                 "/opt/ros/noetic/include/**",
-                "/home/wheeltec/Workspace/Code/Open_source/ros_ws/src/robot_pose_ekf/include/**",
                 "/usr/include/**",
                 "/opt/ros/noetic/include",
                 "/home/wheeltec/demo03_ws/devel/include/**",
                 "/home/wheeltec/demo03_ws/src/plumbing_headfile/include/**",
                 "/home/wheeltec/demo03_ws/src/plumbing_src/include/**",
-                "${workspaceFolder}/devel/include"
+                "${workspaceFolder}/devel/include/**",
+                "${workspaceFolder}/**",
+                "/opt/ros/noetic/include/rosconsole"
             ],
             "name": "ROS"
         }

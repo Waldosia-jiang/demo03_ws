@@ -8,8 +8,7 @@
             "includePath": [
                 "/home/wheeltec/Workspace/Code/Open_source/ros_ws/devel/include/**",
                 "/opt/ros/noetic/include/**",
-                "/usr/include/**",
-                "/opt/ros/noetic/include",
+                "/usr/include/**",               
                 "/home/wheeltec/demo03_ws/devel/include/**",
                 "/home/wheeltec/demo03_ws/src/plumbing_headfile/include/**",
                 "/home/wheeltec/demo03_ws/src/plumbing_src/include/**",

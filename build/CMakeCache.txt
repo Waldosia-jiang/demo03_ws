@@ -771,6 +771,12 @@ ros_01_4_3_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/ros_01_4_3
 ros_01_4_3_SOURCE_DIR:STATIC=/home/wheeltec/demo03_ws/src/ros_01_4_3
 
 //Value Computed by CMake
+ros_02_plumbing_param_server_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/ros_02_plumbing_param_server
+
+//Value Computed by CMake
+ros_02_plumbing_param_server_SOURCE_DIR:STATIC=/home/wheeltec/demo03_ws/src/ros_02_plumbing_param_server
+
+//Value Computed by CMake
 ros_02_plumbing_pub_sub_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/ros_02_plumbing_pub_sub
 
 //Value Computed by CMake
@@ -781,6 +787,18 @@ ros_02_plumbing_server_client_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/r
 
 //Value Computed by CMake
 ros_02_plumbing_server_client_SOURCE_DIR:STATIC=/home/wheeltec/demo03_ws/src/ros_02_plumbing_server_client
+
+//Value Computed by CMake
+ros_02_plumbing_test_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/ros_02_plumbing_test
+
+//Value Computed by CMake
+ros_02_plumbing_test_SOURCE_DIR:STATIC=/home/wheeltec/demo03_ws/src/ros_02_plumbing_test
+
+//Value Computed by CMake
+ros_03_plumbing_api_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/ros_03_plumbing_api
+
+//Value Computed by CMake
+ros_03_plumbing_api_SOURCE_DIR:STATIC=/home/wheeltec/demo03_ws/src/ros_03_plumbing_api
 
 //Value Computed by CMake
 ros_04_04_node_duplicate_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/ros_04_04_node_duplicate

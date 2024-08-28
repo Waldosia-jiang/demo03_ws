@@ -1,0 +1,8 @@
+prefix=/home/wheeltec/demo03_ws/install
+
+Name: ros_02_plumbing_param_server
+Description: Description of ros_02_plumbing_param_server
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

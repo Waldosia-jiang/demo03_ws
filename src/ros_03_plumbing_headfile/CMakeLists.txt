@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(plumbing_headfile)
+project(ros_03_plumbing_headfile)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -104,7 +104,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES plumbing_headfile
+#  LIBRARIES ros_03_plumbing_headfile
 #  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
@@ -196,7 +196,7 @@ target_link_libraries(hello_node
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_plumbing_headfile.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_ros_03_plumbing_headfile.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

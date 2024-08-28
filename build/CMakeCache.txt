@@ -747,12 +747,6 @@ plumbing_param_server_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/plumbing_
 plumbing_param_server_SOURCE_DIR:STATIC=/home/wheeltec/demo03_ws/src/plumbing_param_server
 
 //Value Computed by CMake
-plumbing_server_client_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/plumbing_server_client
-
-//Value Computed by CMake
-plumbing_server_client_SOURCE_DIR:STATIC=/home/wheeltec/demo03_ws/src/plumbing_server_client
-
-//Value Computed by CMake
 plumbing_src_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/plumbing_src
 
 //Value Computed by CMake

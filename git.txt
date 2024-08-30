@@ -15,3 +15,23 @@ ssh -T git@github.com
 
 //将本地分支重置为远程分支的最新状态，这会覆盖本地的所有更改
 git reset --hard origin/<branch-name>
+
+//如何将本地仓库上传到远程仓库
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin <远程仓库的URL>
+git push -u origin main
+
+//将分支名的更改同步到远程仓库
+git push origin -u <新分支名>
+
+//修改仓库名称
+git branch -m <新分支名>
+
+//删除远程分支
+git push origin --delete master
+
+//在拉取更新时使用 rebase，这样会将你本地的提交应用在远程分支的最新提交之上
+git pull --rebase origin main
+

@@ -35,3 +35,11 @@ git push origin --delete master
 //在拉取更新时使用 rebase，这样会将你本地的提交应用在远程分支的最新提交之上
 git pull --rebase origin main
 
+//修改本地仓库名为main
+git branch -m master main
+
+//删除远程的 master 分支引用，并将 main 分支推送到远程
+git push origin -u main
+git push origin --delete master
+
+

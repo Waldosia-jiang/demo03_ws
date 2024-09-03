@@ -883,19 +883,6 @@ hello_world/fast:
 .PHONY : hello_world/fast
 
 #=============================================================================
-# Target rules for targets named hello_node
-
-# Build rule for target.
-hello_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 hello_node
-.PHONY : hello_node
-
-# fast build rule for target.
-hello_node/fast:
-	$(MAKE) -f plumbing_headfile/CMakeFiles/hello_node.dir/build.make plumbing_headfile/CMakeFiles/hello_node.dir/build
-.PHONY : hello_node/fast
-
-#=============================================================================
 # Target rules for targets named use_haha_node
 
 # Build rule for target.
@@ -1414,6 +1401,19 @@ demo01_pub_node: cmake_check_build_system
 demo01_pub_node/fast:
 	$(MAKE) -f ros_03_plumbing_api/CMakeFiles/demo01_pub_node.dir/build.make ros_03_plumbing_api/CMakeFiles/demo01_pub_node.dir/build
 .PHONY : demo01_pub_node/fast
+
+#=============================================================================
+# Target rules for targets named hello_node
+
+# Build rule for target.
+hello_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 hello_node
+.PHONY : hello_node
+
+# fast build rule for target.
+hello_node/fast:
+	$(MAKE) -f ros_03_plumbing_headfile/CMakeFiles/hello_node.dir/build.make ros_03_plumbing_headfile/CMakeFiles/hello_node.dir/build
+.PHONY : hello_node/fast
 
 #=============================================================================
 # Target rules for targets named param_rename_node
@@ -3758,7 +3758,6 @@ help:
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... hello_world"
-	@echo "... hello_node"
 	@echo "... use_haha_node"
 	@echo "... use_haha"
 	@echo "... demo02_param_get_node"
@@ -3799,6 +3798,7 @@ help:
 	@echo "... demo03_api_time_node"
 	@echo "... demo02_sub_node"
 	@echo "... demo01_pub_node"
+	@echo "... hello_node"
 	@echo "... param_rename_node"
 	@echo "... topic_rename_node"
 	@echo "... icar_msgs_genpy"

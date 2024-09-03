@@ -1,8 +1,0 @@
-prefix=/home/wheeltec/demo03_ws/devel
-
-Name: plumbing_headfile
-Description: Description of plumbing_headfile
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

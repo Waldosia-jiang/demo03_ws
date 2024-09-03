@@ -1,0 +1,8 @@
+prefix=/home/wheeltec/demo03_ws/install
+
+Name: ros_03_plumbing_headfile
+Description: Description of ros_03_plumbing_headfile
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

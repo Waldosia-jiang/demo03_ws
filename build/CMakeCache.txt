@@ -729,34 +729,10 @@ nodelet_DIR:PATH=/opt/ros/noetic/share/nodelet/cmake
 pluginlib_DIR:PATH=/opt/ros/noetic/share/pluginlib/cmake
 
 //Value Computed by CMake
-plumbing_api_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/plumbing_api
-
-//Value Computed by CMake
-plumbing_api_SOURCE_DIR:STATIC=/home/wheeltec/demo03_ws/src/plumbing_api
-
-//Value Computed by CMake
-plumbing_headfile_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/plumbing_headfile
-
-//Value Computed by CMake
-plumbing_headfile_SOURCE_DIR:STATIC=/home/wheeltec/demo03_ws/src/plumbing_headfile
-
-//Value Computed by CMake
-plumbing_param_server_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/plumbing_param_server
-
-//Value Computed by CMake
-plumbing_param_server_SOURCE_DIR:STATIC=/home/wheeltec/demo03_ws/src/plumbing_param_server
-
-//Value Computed by CMake
 plumbing_src_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/plumbing_src
 
 //Value Computed by CMake
 plumbing_src_SOURCE_DIR:STATIC=/home/wheeltec/demo03_ws/src/plumbing_src
-
-//Value Computed by CMake
-plumbing_test_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/plumbing_test
-
-//Value Computed by CMake
-plumbing_test_SOURCE_DIR:STATIC=/home/wheeltec/demo03_ws/src/plumbing_test
 
 //The directory containing a CMake configuration file for realtime_tools.
 realtime_tools_DIR:PATH=/opt/ros/noetic/share/realtime_tools/cmake
@@ -799,6 +775,12 @@ ros_03_plumbing_api_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/ros_03_plum
 
 //Value Computed by CMake
 ros_03_plumbing_api_SOURCE_DIR:STATIC=/home/wheeltec/demo03_ws/src/ros_03_plumbing_api
+
+//Value Computed by CMake
+ros_03_plumbing_headfile_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/ros_03_plumbing_headfile
+
+//Value Computed by CMake
+ros_03_plumbing_headfile_SOURCE_DIR:STATIC=/home/wheeltec/demo03_ws/src/ros_03_plumbing_headfile
 
 //Value Computed by CMake
 ros_04_04_node_duplicate_BINARY_DIR:STATIC=/home/wheeltec/demo03_ws/build/ros_04_04_node_duplicate

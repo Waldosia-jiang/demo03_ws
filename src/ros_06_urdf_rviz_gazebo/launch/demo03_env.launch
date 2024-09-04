@@ -22,6 +22,6 @@
 <node pkg="gazebo_ros" type="spawn_model" name="spawn_model" args="-urdf -model car -param robot_description"/>
 
 <!--启动 rviz -->
-<node pkg="rviz" type="rviz" name="rviz" args="-d $(find ros_06_urdf_rviz)/config/show_mycar.rviz"/>
+<!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find ros_06_urdf_rviz)/config/show_mycar.rviz"/> -->
 
 </launch>

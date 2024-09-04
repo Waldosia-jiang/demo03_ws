@@ -4,7 +4,7 @@
   <gazebo reference="car_laser">
     <sensor type="ray" name="rplidar">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>false</visualize>
+      <visualize>true</visualize>
       <update_rate>5.5</update_rate>
       <ray>
         <scan>

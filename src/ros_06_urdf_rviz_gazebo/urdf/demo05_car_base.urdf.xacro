@@ -74,7 +74,7 @@
 
 </link>
 
-<gazebo reference="base_link">
+<gazebo reference="base_link">jiang
    <material>Gazebo/Blue</material>
 </gazebo>
 

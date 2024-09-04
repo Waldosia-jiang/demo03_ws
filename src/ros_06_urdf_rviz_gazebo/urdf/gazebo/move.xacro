@@ -18,7 +18,8 @@
     <!-- 每一个驱动轮都需要配置传动装置 -->
     <xacro:joint_trans joint_name="left_wheel2base_link" />
     <xacro:joint_trans joint_name="right_wheel2base_link" />
-
+    
+    <!-- https://blog.csdn.net/qq_38429958/article/details/135885901 -->
     <!-- 控制器 -->
     <gazebo>
         <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
@@ -45,16 +46,16 @@
             <!-- <robotBaseFrame>base_footprint</robotBaseFrame> 根坐标系 -->
             <robotBaseFrame>base_footprint</robotBaseFrame>
         </plugin>
-
+  
         <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
                 <alwaysOn>true</alwaysOn>
                 <updateRate>50.0</updateRate>
                 <bodyName>base_link</bodyName>
-            <topicName>base_pose_ground_truth</topicName>
+                <topicName>base_pose_ground_truth</topicName>
                 <gaussianNoise>0.01</gaussianNoise>
                 <frameName>world</frameName>
                 <xyzOffsets>0 0 0</xyzOffsets>
-            <rpyOffsets>0 0 0</rpyOffsets>
+                <rpyOffsets>0 0 0</rpyOffsets>
         </plugin>
 
     </gazebo>

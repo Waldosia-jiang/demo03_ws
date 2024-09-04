@@ -11,3 +11,5 @@ local_costmap:
   width: 3 # 局部地图宽度 单位是 m
   height: 3 # 局部地图高度 单位是 m
   resolution: 0.05 # 局部地图分辨率 单位是 m，一般与静态地图分辨率保持一致
+
+  

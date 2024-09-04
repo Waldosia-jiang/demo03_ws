@@ -4,7 +4,7 @@
  <include file= "$(find ros_06_urdf_rviz_gazebo)/launch/demo03_env.launch" /> 
 
   <!--地图服务-->
- <!-- <include file="$(find ros_07_02_navigation_demo)/launch/nav03_map_server.launch"/> -->
+ <include file="$(find ros_07_02_navigation_demo)/launch/nav03_map_server.launch"/>
 
   <!--amcl-->
  <include file="$(find ros_07_02_navigation_demo)/launch/nav04_amcl.launch"/>

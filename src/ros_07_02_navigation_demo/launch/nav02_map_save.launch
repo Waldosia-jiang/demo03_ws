@@ -1,4 +1,4 @@
 <launch>
     <arg name="filename" value="$(find ros_07_02_navigation_demo)/map/AAAA" />
-    <node name="map_save" pkg="map_server" type="map_saver" args="-f $(arg filename)" />
+    <node name="map_save" pkg="map_server" type="map_saver" output="screen" args="-f $(arg filename)" />
 </launch>

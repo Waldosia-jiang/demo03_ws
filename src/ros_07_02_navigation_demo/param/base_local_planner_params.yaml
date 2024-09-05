@@ -24,7 +24,7 @@ TrajectoryPlannerROS:
    # angular_sim_granularity: 0.05  #新添加参数
    vx_samples: 18
    vtheta_samples: 20
-   # controller_frequency: 20 #新添加参数
+   controller_frequency: 10 #新添加参数
 
 # Differential-drive robot configuration
 # 是否是全向移动机器人

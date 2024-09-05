@@ -1,4 +1,4 @@
-<launch>
+<!-- <launch>
 
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
         <rosparam file="$(find ros_07_02_navigation_demo)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
@@ -8,7 +8,7 @@
         <rosparam file="$(find ros_07_02_navigation_demo)/param/base_local_planner_params.yaml" command="load" />
     </node>
 
-</launch>
+</launch> -->
 
 <!-- <launch>
 	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
@@ -21,3 +21,17 @@
 		<rosparam file="$(find ros_07_02_navigation_demo)/param/dwa_local_planner_params.yaml" command="load" />	
 	</node>
 </launch> -->
+
+
+<launch>
+   <!-- move_base -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+    <rosparam file="$(find turtlebot3_navigation)/param_2/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find turtlebot3_navigation)/param_2/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find turtlebot3_navigation)/param_2/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find turtlebot3_navigation)/param_2/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find turtlebot3_navigation)/param_2/move_base_params.yaml" command="load" />
+    <rosparam file="$(find turtlebot3_navigation)/param_2/dwa_local_planner_params.yaml" command="load" />
+  </node>
+</launch>

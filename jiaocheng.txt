@@ -19,6 +19,7 @@ load_parameters: unable to set parameters (last param was [/move_base/Trajectory
 [ERROR] [1725516371.856932082, 3174.981000000]: Global Frame: odom Plan Frame size 109: map
 
 
+<<<<<<< HEAD
 git remote add origin git@github.com:Waldosia-jiang/wheeltec_robot.git
 git branch -M main
 git push -u origin main
@@ -30,3 +31,12 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin git@github.com:Waldosia-jiang/wheeltec_robot.git
 git push -u origin main
+=======
+
+[ERROR] [1725518983.742900907, 466.757000000]: Extrapolation Error: Lookup would require extrapolation 0.072000000s into the future.  Requested time 466.756000000 but the latest data is at time 466.684000000, when looking up transform from frame [odom] to frame [map]
+
+[ERROR] [1725518983.743033295, 466.757000000]: Global Frame: odom Plan Frame size 2: map
+
+[ WARN] [1725518983.743106864, 466.757000000]: Could not transform the global plan to the frame of the controller
+[ERROR] [1725518983.743153458, 466.757000000]: Could not get local plan
+>>>>>>> 202c9e9a8a9990c26b28322e0014b3eacd5983d5

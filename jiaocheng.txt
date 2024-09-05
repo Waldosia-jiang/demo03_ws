@@ -3,3 +3,10 @@ http://www.autolabor.com.cn/book/ROSTutorials/chapter1/15-ben-zhang-xiao-jie/152
 TF_REPEATED_DATA ignoring data with redundant timestamp for frame right_wheel (parent base_link) at time 309.231000 according to authority unknown_publisher
 
 load_parameters: unable to set parameters (last param was [/move_base/TrajectoryPlannerROS/sim_granularity=0.05]): cannot marshal None unless allow_none is enabled
+
+
+[ERROR] [1725503348.119748514, 296.955000000]: Could not get local plan
+[ INFO] [1725503348.320741944, 297.154000000]: Got new plan
+[ERROR] [1725503348.321212692, 297.154000000]: Extrapolation Error: Lookup would require extrapolation 0.086000000s into the future.  Requested time 297.152000000 but the latest data is at time 297.066000000, when looking up transform from frame [odom] to frame [map]
+
+[ERROR] [1725503348.321293427, 297.154000000]: Global Frame: odom Plan Frame size 794: map

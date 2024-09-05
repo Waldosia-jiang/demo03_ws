@@ -11,20 +11,20 @@ TrajectoryPlannerROS:
    acc_lim_x: 1.0 # X 加速限制
    acc_lim_y: 0.0 # Y 加速限制
    acc_lim_theta: 0.6 # 角速度加速限制
-   escape_vel: -0.1 #新添加参数
+   # escape_vel: -0.1 #新添加参数
 
 # Goal Tolerance Parameters，目标公差
    xy_goal_tolerance: 0.10
    yaw_goal_tolerance: 0.05
-   latch_xy_goal_tolerance: false  #新添加参数
+   # latch_xy_goal_tolerance: false  #新添加参数
 
   # Forward Simulation Parameters，前进模拟参数
    sim_granularity: 0.05
    sim_time: 4 #数据比较大局部比较拟合全局
-   angular_sim_granularity: 0.05  #新添加参数
+   # angular_sim_granularity: 0.05  #新添加参数
    vx_samples: 18
    vtheta_samples: 20
-   controller_frequency: 20 #新添加参数
+   # controller_frequency: 20 #新添加参数
 
 # Differential-drive robot configuration
 # 是否是全向移动机器人

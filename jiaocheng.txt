@@ -10,3 +10,10 @@ load_parameters: unable to set parameters (last param was [/move_base/Trajectory
 [ERROR] [1725503348.321212692, 297.154000000]: Extrapolation Error: Lookup would require extrapolation 0.086000000s into the future.  Requested time 297.152000000 but the latest data is at time 297.066000000, when looking up transform from frame [odom] to frame [map]
 
 [ERROR] [1725503348.321293427, 297.154000000]: Global Frame: odom Plan Frame size 794: map
+
+
+[ WARN] [1725516371.650224689, 3174.780000000]: Could not transform the global plan to the frame of the controller
+[ WARN] [1725516371.855281968, 3174.980000000]: Control loop missed its desired rate of 20.0000Hz... the loop actually took 0.0820 seconds
+[ERROR] [1725516371.856678600, 3174.981000000]: Extrapolation Error: Lookup would require extrapolation 0.025000000s into the future.  Requested time 3174.971000000 but the latest data is at time 3174.946000000, when looking up transform from frame [odom] to frame [map]
+
+[ERROR] [1725516371.856932082, 3174.981000000]: Global Frame: odom Plan Frame size 109: map

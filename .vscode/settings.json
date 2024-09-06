@@ -77,5 +77,6 @@
         "variant": "cpp",
         "bit": "cpp"
     },
-    "cmake.ignoreCMakeListsMissing": true
+    "cmake.ignoreCMakeListsMissing": true,
+    "git.ignoreLimitWarning": true
 }

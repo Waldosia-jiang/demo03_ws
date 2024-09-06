@@ -42,4 +42,7 @@ git branch -m master main
 git push origin -u main
 git push origin --delete master
 
+//强制覆盖远程仓库
+git push origin main --force
+
 

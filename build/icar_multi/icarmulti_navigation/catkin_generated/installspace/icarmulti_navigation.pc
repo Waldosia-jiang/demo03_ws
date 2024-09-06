@@ -1,8 +1,0 @@
-prefix=/home/wheeltec/demo03_ws/install
-
-Name: icarmulti_navigation
-Description: Description of icarmulti_navigation
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

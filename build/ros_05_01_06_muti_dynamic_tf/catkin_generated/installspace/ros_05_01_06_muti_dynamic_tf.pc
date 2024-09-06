@@ -1,8 +1,0 @@
-prefix=/home/wheeltec/demo03_ws/install
-
-Name: ros_05_01_06_muti_dynamic_tf
-Description: Description of ros_05_01_06_muti_dynamic_tf
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

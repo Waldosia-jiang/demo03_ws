@@ -1,8 +1,0 @@
-prefix=/home/wheeltec/demo03_ws/devel
-
-Name: ares_teleop
-Description: Description of ares_teleop
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

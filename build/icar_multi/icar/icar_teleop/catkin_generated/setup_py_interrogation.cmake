@@ -1,7 +1,0 @@
-set(icar_teleop_SETUP_PY_SETUP_MODULE "distutils.core")
-set(icar_teleop_SETUP_PY_VERSION "0.0.0")
-set(icar_teleop_SETUP_PY_SCRIPTS "")
-set(icar_teleop_SETUP_PY_PACKAGES "icar_teleop")
-set(icar_teleop_SETUP_PY_PACKAGE_DIRS "src/icar_teleop")
-set(icar_teleop_SETUP_PY_MODULES "")
-set(icar_teleop_SETUP_PY_MODULE_DIRS "")

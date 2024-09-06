@@ -1,8 +1,0 @@
-prefix=/home/wheeltec/demo03_ws/install
-
-Name: ros_01_4_3
-Description: Description of ros_01_4_3
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

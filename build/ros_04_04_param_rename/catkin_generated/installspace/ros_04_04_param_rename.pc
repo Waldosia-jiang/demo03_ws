@@ -1,8 +1,0 @@
-prefix=/home/wheeltec/demo03_ws/install
-
-Name: ros_04_04_param_rename
-Description: Description of ros_04_04_param_rename
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

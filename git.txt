@@ -46,3 +46,22 @@ git push origin --delete master
 git push origin main --force
 
 
+//删除已经上传并且被 Git 版本控制的 build 文件夹，你可以按照以下步骤操作
+//将 build 文件夹添加到 .gitignore 文件中
+build/
+
+//从 Git 仓库中删除已经上传的 build 文件夹，但保留本地文件。运行以下命令
+git rm -r --cached build/
+
+//提交你的更改
+git add .gitignore
+git commit -m "Remove build folder from version control"
+
+//推送到远程仓库
+git push origin <branch-name>
+
+
+
+
+
+
